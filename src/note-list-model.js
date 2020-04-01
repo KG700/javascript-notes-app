@@ -4,13 +4,13 @@
   };
 
   NoteList.prototype.create = function(text) {
-    var note = new Note(text)
-    note.id = this.notes.length
-    this.notes.push(note)
+    var note = new Note(text);
+    note.id = this.notes.length;
+    this.notes.push(note);
   }
 
   NoteList.prototype.all = function() {
-  return this.notes
+  return this.notes;
 
   }
   exports.NoteList = NoteList;

@@ -15,6 +15,8 @@
 
 
 var noteList = new NoteList;
-noteList.create("Favourite drink: seltzer")
+noteList.create("Favourite drink: seltzer");
+noteList.create("Favourite food: pizza");
+noteList.create("Favourite animal: cat");
 var noteController = new NoteController(noteList);
 noteController.showList();
