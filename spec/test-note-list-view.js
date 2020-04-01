@@ -4,7 +4,7 @@
     var noteListView = new NoteListView(noteList);
     noteList.create("Favourite food: pesto")
     noteList.create("Favourite drink: seltzer")
-    assert.isTrue(noteListView.viewList() === "<ul><li><div>Favourite food: pest</div></li><li><div>Favourite drink: sel</div></li></ul>" );
+    assert.isTrue(noteListView.viewList() === "<ul><li><div><a href='#notes/0'>Favourite food: pest</a></div></li><li><div><a href='#notes/1'>Favourite drink: sel</a></div></li></ul>" );
   }
   
   testViewListReturnsNotes();
