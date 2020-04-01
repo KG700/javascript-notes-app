@@ -1,15 +1,24 @@
 (function(exports) {
   function NoteController(noteList){
     this.noteList = noteList
+    this.currentId = 0;
 
     // this.noteList.create()
     this.noteListView = new NoteListView(noteList);
-  }
+  };
 
   NoteController.prototype.showList = function () {
     var app = document.getElementById('app');
     app.innerHTML = this.noteListView.viewList();
   };
+
+  NoteController.prototype.showNoteForCurrentPageURL = function () {
+    window.addEventListener('hashchange', function(){
+      this.currentId = window.location.hash.split('#notes/')[1];
+      document.getElementById('note').innerHTML = this.noteList.notes[this.currentId].text;
+    }, false);
+  };
+
   exports.NoteController = NoteController;
 })(this);
 
@@ -20,3 +29,4 @@ noteList.create("Favourite food: pizza");
 noteList.create("Favourite animal: cat");
 var noteController = new NoteController(noteList);
 noteController.showList();
+noteController.showNoteForCurrentPageURL();
