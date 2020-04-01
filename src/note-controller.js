@@ -1,6 +1,20 @@
-function changeGreeting() {
-  var helloVar = document.getElementById('app');
-  helloVar.innerHTML = "Howdy";
-};
+(function(exports) {
+  function NoteController(noteList){
+    this.noteList = noteList
 
-window.onload = changeGreeting;
+    // this.noteList.create()
+    this.noteListView = new NoteListView(noteList);
+  }
+
+  NoteController.prototype.showList = function () {
+    var app = document.getElementById('app');
+    app.innerHTML = this.noteListView.viewList();
+  };
+  exports.NoteController = NoteController;
+})(this);
+
+
+var noteList = new NoteList;
+noteList.create("Favourite drink: seltzer")
+var noteController = new NoteController(noteList);
+noteController.showList();
