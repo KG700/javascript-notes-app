@@ -19,6 +19,15 @@
     }, false);
   };
 
+  NoteController.prototype.createNewNote = function () {
+    var form = document.getElementById('text');
+    var noteText = document.getElementById('noteText');
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      console.log(noteText.value);
+    });
+  }
+
   exports.NoteController = NoteController;
 })(this);
 
@@ -30,3 +39,4 @@ noteList.create("Favourite animal: cat");
 var noteController = new NoteController(noteList);
 noteController.showList();
 noteController.showNoteForCurrentPageURL();
+noteController.createNewNote();
